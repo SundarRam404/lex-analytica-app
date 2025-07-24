@@ -18,9 +18,15 @@ model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 # ... (the rest of your main.py file stays the same)
 
+# The list of allowed origins
+origins = [
+    "http://localhost:3000", # For local development
+    "https://lex-analytica-app.vercel.app", # Your live frontend
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
