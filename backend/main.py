@@ -1,12 +1,22 @@
 # main.py
+# backend/main.py
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import fitz, google.generativeai as genai, os
+import fitz, google.generativeai as genai, os # <-- Make sure 'os' is imported
 
 app = FastAPI(title="LexAnalytica AI Backend")
-API_KEY = "AIzaSyBNTT1JklhA0Pj9fOElt6jF9Bb4yXNLH_w" # Replace with your key
+
+# --- THIS IS THE FIX ---
+# Load the key from an environment variable instead of hardcoding it
+API_KEY = os.getenv("GOOGLE_API_KEY")
+if not API_KEY:
+    raise ValueError("No GOOGLE_API_KEY set for Flask application")
+# --- END OF FIX ---
+
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash-latest")
+
+# ... (the rest of your main.py file stays the same)
 
 app.add_middleware(
     CORSMiddleware,
