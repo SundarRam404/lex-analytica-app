@@ -7,6 +7,15 @@ body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
 .logo-container h1 { font-size: 2.5rem; font-weight: 800; }
 .logo-container span { font-size: 2.5rem; }
 .tagline { margin-top: 8px; font-size: 1.1rem; font-weight: 500; color: #aeb8d0; }
+
+/* --- ADD THIS NEW STYLE --- */
+.credit {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #8a96b1;
+}
+/* --- END OF NEW STYLE --- */
+
 .main-content { padding: 40px 20px; display: flex; justify-content: center; align-items: flex-start; min-height: 50vh; }
 .upload-container, .results-container { background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border: 1px solid #e4e6e8; width: 100%; max-width: 900px; text-align: center; }
 .upload-container h2, .results-container h2 { font-size: 1.5rem; margin-bottom: 20px; color: #333; }
@@ -27,41 +36,31 @@ body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
 .results-text-wrapper { border: 1px solid #e4e6e8; border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; }
 .results-text { font-size: 17px; font-weight: 500; line-height: 1.7; }
 .results-text > * { text-align: left; }
-
-/* --- START OF FIX --- */
-
-/* 1. Reverted Main Headings (h3) back to normal */
 .results-text h3, .timeline-container h3 { 
   font-size: 1.8rem;
   font-weight: 800;
   color: #0d1b3f;
-  text-decoration: none; /* Reverted */
+  text-decoration: none;
   margin-top: 25px; 
   margin-bottom: 15px; 
-  border-bottom: 2px solid #e4e6e8; /* Reverted */
+  border-bottom: 2px solid #e4e6e8;
   padding-bottom: 8px; 
 }
 .results-text h3:first-of-type { margin-top: 0; }
-
-
-/* 2. Applied new styles to Subheadings (strong) */
 .results-text strong {
-  display: block; /* Gives it its own line */
-  font-size: 1.2rem; /* Made bigger */
-  font-weight: 700;  /* Made bold */
-  color: #1e8e3e;   /* Made green */
-  text-decoration: underline; /* Added underline */
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e8e3e;
+  text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   margin-top: 15px;
   margin-bottom: 8px;
 }
-/* --- END OF FIX --- */
-
 .timeline-container { margin-top: 20px; margin-bottom: 20px; text-align: left; }
 .timeline-item { border: 1px solid #e4e6e8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
 .timeline-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f9fafb; cursor: pointer; font-size: 17px; }
-/* Make sure the timeline header's own strong tag isn't affected */
 .timeline-header strong {
   display: inline;
   text-decoration: none;
@@ -69,18 +68,15 @@ body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
   font-size: inherit;
   margin: 0;
 }
-
 .toggle-btn { background-color: #e4e6e8; border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 18px; font-weight: bold; color: #0d1b3f; display: flex; align-items: center; justify-content: center; line-height: 1; }
 .timeline-details { padding: 15px; background-color: #fff; border-top: 1px solid #e4e6e8; font-size: 16px; }
 .results-text ol, .results-text ul { padding-left: 25px; }
 .results-text li { margin-bottom: 20px; }
 .results-text ul li { list-style-type: none; padding-left: 10px; }
-
-/* Target only the Answer/Model Answer strong tags inside a list item */
 .results-text li strong {
   display: inline-block;
   margin-top: 10px;
   color: #1e8e3e;
-  text-decoration: none; /* Do not underline the "Answer:" text */
-  font-size: inherit; /* Inherit size from the list item */
+  text-decoration: none;
+  font-size: inherit;
 }

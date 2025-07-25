@@ -32,6 +32,7 @@ function App() {
     if (timelineMatch) {
       const timelineBlock = timelineMatch[1];
       restOfText = text.replace(timelineRegex, '### 4.');
+      
       const eventRegex = /- \*\*(.*?):\*\* (.*?)\n\s+- \*\*Details:\*\* ([\s\S]*?)(?=\n- \*\*|\n###|$)/g;
       const events = [];
       let match;
@@ -49,7 +50,6 @@ function App() {
       restOfText = restOfText.replace(scoreRegex, '');
     }
 
-    // --- THIS IS THE FIX for the trailing ** ---
     const cleanedText = restOfText.trim().replace(/\s*\*\*$/, '');
     setMainAnalysis(cleanedText);
   };
@@ -62,7 +62,7 @@ function App() {
     for (let i = 0; i < files.length; i++) { formData.append('files', files[i]); }
     try {
       const apiUrl = `${process.env.REACT_APP_API_URL}/analyze-pdf/`;
-const response = await axios.post(apiUrl, formData);
+      const response = await axios.post(apiUrl, formData);
       parseAnalysis(response.data.analysis);
     } catch (err) {
       setError(err.response ? err.response.data.detail : 'Backend server error.');
@@ -78,8 +78,14 @@ const response = await axios.post(apiUrl, formData);
   return (
     <div className="app-container">
       <header className="app-header">
-        <div className="logo-container"><span>⚖️</span><h1>AutoCase Pro</h1></div>
-        <p className="tagline">Complete Legal Document Analysis Pipeline</p>
+        {/* --- START OF CHANGES --- */}
+        <div className="logo-container">
+          <span>⚖️</span>
+          <h1>Verdicto - AI</h1>
+        </div>
+        <p className="tagline">Decoding Judgments with Precision</p>
+        <p className="credit">Engineered by Sundar Ram</p>
+        {/* --- END OF CHANGES --- */}
       </header>
       <main className="main-content">
         {isLoading ? (
