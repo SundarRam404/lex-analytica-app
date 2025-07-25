@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
-import headerBg from './assets/header-bg.jpg'; // Import the new background image
 
 function App() {
   const [files, setFiles] = useState(null);
@@ -15,7 +14,6 @@ function App() {
   const [justification, setJustification] = useState('');
   const [openAccordion, setOpenAccordion] = useState(null);
 
-  // All your functions (handleReset, parseAnalysis, etc.) remain the same
   const handleReset = () => {
     setFiles(null); setError(''); setMainAnalysis(''); setTimelineEvents([]);
     setScore(''); setJustification(''); setOpenAccordion(null);
@@ -70,37 +68,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="app-header" style={{ backgroundImage: `url(${headerBg})` }}>
-        <div className="header-overlay">
-          <div className="header-content">
-            <div className="logo-container">
-              <span>⚖️</span>
-              <h1>Verdicto-AI</h1>
-            </div>
-            <p className="tagline">Decoding Judgments with Precision</p>
-            <p className="description">
-              Revolutionary AI-powered legal intelligence platform that analyzes case law, predicts verdicts, and
-              delivers unparalleled judicial insights for legal professionals.
-            </p>
-            <div className="cta-buttons">
-              <button className="cta-button primary">🔍 Explore Legal Database</button>
-              <button className="cta-button secondary">🧠 AI Case Analysis</button>
-            </div>
+      <header className="app-header">
+        <div className="header-content">
+          <div className="logo-container">
+            <span>⚖️</span>
+            <h1>Verdicto-AI</h1>
           </div>
-          <div className="stats-bar">
-            <div className="stat-item">
-              <h2>2.5M+</h2>
-              <p>Legal Cases Analyzed</p>
-            </div>
-            <div className="stat-item">
-              <h2>98.7%</h2>
-              <p>Prediction Accuracy</p>
-            </div>
-            <div className="stat-item">
-              <h2>15,000+</h2>
-              <p>Legal Professionals</p>
-            </div>
-          </div>
+          <p className="tagline">Decoding Judgments with Precision</p>
+          <p className="credit">Engineered by Sundar Ram</p>
         </div>
       </header>
 
