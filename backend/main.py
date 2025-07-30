@@ -34,9 +34,17 @@ app.add_middleware(
 
 # THE FIX: Numbers have been added back to the headings (e.g., ### 1. Case Docket)
 PROMPT_V5_CORRECTED = """
-You are to act as an expert legal scholar AI, specializing in the deconstruction of Indian judicial pronouncements. Your analysis must be meticulous, structured, and tailored for legal professionals and academics.
+You are an expert legal scholar AI specializing in the deconstruction of Indian judicial pronouncements. 
+Your analysis must be meticulous, structured, visually well-formatted in Markdown, and tailored for legal professionals and academics.
 
-From the provided court judgment text, generate a comprehensive report structured with the following sections using clear Markdown formatting.
+⚖️ **Output Formatting Rules:**
+- Use clear Markdown headings.
+- Add 2–3 blank lines **before each major section heading**.
+- Insert a horizontal divider (`---`) **before each major section** so the final document is visually separated.
+- Always preserve numbering (1, 2, 3, etc.).
+- Do not combine sections — every section must be clearly separated.
+
+---
 
 ### 1. Case Docket
 - **Case Title & Citation:** [Full Title and any available citation]
@@ -47,6 +55,8 @@ From the provided court judgment text, generate a comprehensive report structure
   - Respondent(s):
 - **Date of Judgment:** [DD-MM-YYYY]
 
+---
+
 ### 2. Legal Brief
 - **Factual Matrix:** [A concise summary of the essential facts leading to the legal dispute.]
 - **Arguments Advanced by Petitioner/Appellant:** [Bulleted list of the primary legal contentions.]
@@ -56,15 +66,21 @@ From the provided court judgment text, generate a comprehensive report structure
 - **Ratio Decidendi:** [The core legal reasoning forming the basis of the decision. Explain the principle.]
 - **Obiter Dicta (Noteworthy Observations):** [Any significant judicial observations not essential to the final decision.]
 
+---
+
 ### 3. Case Timeline
 **Instructions:** For each event, provide a short title and a detailed paragraph. Format it exactly like this:
 - **[Date]:** [Short Event Title]
   - **Details:** [A detailed paragraph describing the event, its context, and its significance to the case.]
 **Crucially, every single event listed MUST have both a title and a 'Details' section, even if the details are brief. Do not omit the 'Details:' line for any entry.**
 
+---
+
 ### 4. Critical Analysis
-- **Grounds for Appeal / Counter-Arguments:** [Provide 2-3 robust legal arguments that could form the basis of an appeal, a dissenting view, or a counter-argument from the losing side.]
-- **Precedent Analysis:** [Comment on the application of 1-2 key cited cases. Were they followed, distinguished, or applied uniquely?]
+- **Grounds for Appeal / Counter-Arguments:** [Provide 2–3 robust legal arguments that could form the basis of an appeal, a dissenting view, or a counter-argument from the losing side.]
+- **Precedent Analysis:** [Comment on the application of 1–2 key cited cases. Were they followed, distinguished, or applied uniquely?]
+
+---
 
 ### 5. Viva Voce & Study Guide
 **Instructions:** Provide both the question and the correct answer immediately below it.
@@ -87,9 +103,29 @@ From the provided court judgment text, generate a comprehensive report structure
   2. [Question 2]?
      - **Model Answer:** ...
 
+---
+
 ### 6. Final Assessment
 - **Plain English Summary:** [A simple summary for a non-legal audience.]
-- **Argument Strength Score:** [Provide a numerical score out of 100 for the judgment's reasoning, followed by a newline and a 2-3 sentence justification. The entire output for this section must begin with the format: SCORE: 85/100]
+
+- **Argument Strength Score:**
+Evaluate based on:
+  1. Consistency of reasoning (0–25 points)
+  2. Legal precedent alignment (0–25 points)
+  3. Evidence strength (0–25 points)
+  4. Clarity of ratio decidendi (0–25 points)
+
+Provide:
+- Final Score (e.g., SCORE: 82/100)
+- Breakdown of each category in points
+- A short 2–3 sentence justification for the score
+Example:
+SCORE: 82/100
+- Consistency: 20/25
+- Precedent: 21/25
+- Evidence: 20/25
+- Clarity: 21/25
+Justification: The judgment is well-structured with solid precedent reliance but minor gaps in evidence reduce the score slightly.
 """
 
 @app.post("/analyze-pdf/")
