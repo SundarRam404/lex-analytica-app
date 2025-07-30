@@ -15,10 +15,17 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .credit { margin-top: 15px; font-size: 1.0rem; color: #8a96b1; }
 
 /* --- Landing Page & Content --- */
-.landing-page { width: 100%; max-width: 1000px; }
+.landing-page { width: 100%; max-width: 1000px; margin: auto; }
 .main-content { padding: 40px 20px; display: flex; justify-content: center; align-items: flex-start; }
 .upload-container, .results-container { background-color: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); border: 1px solid #e4e6e8; width: 100%; text-align: center; }
 .upload-container { margin-bottom: 60px; }
+
+/* 🔹 FIX: Limit width of results and center it */
+.results-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: left; /* better reading */
+}
 
 /* --- New Page Section Styles --- */
 .page-section { margin-bottom: 60px; }
@@ -46,18 +53,61 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .analyze-button:disabled { background-image: none; background-color: #aeb8d0; cursor: not-allowed; }
 .error-message { color: #d93025; font-weight: 500; margin-top: 15px; }
 .loader-container { text-align: center; padding: 50px; }
-.score-container { background-color: #f0f2f5; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+
+/* 🔹 FIX: More breathing space in score container */
+.score-container {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 25px;
+}
 .score-display { font-size: 4rem; font-weight: 800; color: #0d1b3f; }
-.results-text-wrapper { border: 1px solid #e4e6e8; border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; }
-.results-text { font-size: 17px; font-weight: 500; line-height: 1.7; }
+
+/* 🔹 FIX: Better text formatting */
+.results-text-wrapper {
+  border: 1px solid #e4e6e8;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 25px;
+  text-align: left;
+  background: #fafbfc;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.results-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #2c2c2c;
+}
+.results-text p { margin-bottom: 18px; }
+.results-text ul { padding-left: 25px; margin-bottom: 20px; }
+.results-text li { margin-bottom: 10px; }
 .results-text > * { text-align: left; }
-.results-text h3, .timeline-container h3 { font-size: 1.8rem; font-weight: 800; color: #0d1b3f; text-decoration: none; margin-top: 25px; margin-bottom: 15px; border-bottom: 2px solid #e4e6e8; padding-bottom: 8px; }
-.results-text strong { display: block; font-size: 1.2rem; font-weight: 700; color: #1e8e3e; text-decoration: underline; text-underline-offset: 4px; margin-top: 15px; margin-bottom: 8px; }
+
+/* 🔹 FIX: Headings spacing */
+.results-text h3, .timeline-container h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0d1b3f;
+  text-decoration: none;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e4e6e8;
+  padding-bottom: 8px;
+}
+.results-text strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e8e3e;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
 .timeline-item { border: 1px solid #e4e6e8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
 .timeline-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f9fafb; cursor: pointer; }
 .timeline-header strong { display: inline; text-decoration: none; color: inherit; font-size: inherit; margin: 0; }
 .toggle-btn { background-color: #e4e6e8; border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 18px; font-weight: bold; }
 .timeline-details { padding: 15px; background-color: #fff; border-top: 1px solid #e4e6e8; }
-.results-text li { margin-bottom: 20px; }
-.results-text ul li { list-style-type: none; }
-.results-text li strong { display: inline-block; margin-top: 10px; color: #1e8e3e; text-decoration: none; font-size: inherit; }
