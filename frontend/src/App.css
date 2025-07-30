@@ -60,7 +60,17 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .timeline-details { padding: 15px; background-color: #fff; border-top: 1px solid #e4e6e8; }
 .results-text li { margin-bottom: 20px; }
 .results-text ul li { list-style-type: none; }
-.results-text li strong { display: inline-block; margin-top: 10px; color: #1e8e3e; text-decoration: none; font-size: inherit; } 
+.results-text li strong {
+  display: block;
+  margin-top: 80px;            /* Space before heading */
+  margin-bottom: 15px;         /* Space after heading */
+  padding-bottom: 8px;         /* Space for divider */
+  border-bottom: 3px solid black;  /* Black divider line */
+  color: #1e8e3e;              /* Keep your original green */
+  text-decoration: none;
+  font-size: inherit;
+}
+
 /* 🔹 Add space + black line between section headings (1, 2, 3, 4) */
 .results-text p strong {
   display: block;
