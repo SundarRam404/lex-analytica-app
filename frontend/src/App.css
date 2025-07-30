@@ -52,6 +52,15 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .results-text { font-size: 17px; font-weight: 500; line-height: 1.7; }
 .results-text > * { text-align: left; }
 .results-text h3, .timeline-container h3 { font-size: 1.8rem; font-weight: 800; color: #0d1b3f; text-decoration: none; margin-top: 40px; margin-bottom: 20px; border-bottom: 3px double #555; padding-bottom: 8px; }
+.results-text h4,
+.results-text h5 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #0d1b3f;
+  border-bottom: 2px dotted #ccc;
+}
 .results-text strong { display: block; font-size: 1.2rem; font-weight: 700; color: #1e8e3e; text-decoration: underline; text-underline-offset: 4px; margin-top: 15px; margin-bottom: 8px; }
 .timeline-item { border: 1px solid #e4e6e8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
 .timeline-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f9fafb; cursor: pointer; }
