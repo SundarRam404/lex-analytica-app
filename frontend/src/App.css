@@ -24,7 +24,7 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .results-container {
   max-width: 1000px;
   margin: 40px auto;
-  text-align: left; /* better reading */
+  text-align: left;
 }
 
 /* --- New Page Section Styles --- */
@@ -43,7 +43,7 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 /* --- Footer --- */
 .app-footer { background-color: #0d1b3f; color: #aeb8d0; text-align: center; padding: 20px; margin-top: auto; }
 
-/* --- Existing Styles (Unchanged) --- */
+/* --- Existing Styles --- */
 .drop-zone { border: 2px dashed #d0d5dd; border-radius: 12px; padding: 40px 20px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background-color: #f9fafb; }
 .upload-icon { font-size: 2.5rem; color: #4361ee; font-weight: bold; transform: scaleY(-1); }
 .drop-zone h3 { font-size: 1.2rem; color: #1c1e21; }
@@ -54,7 +54,7 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .error-message { color: #d93025; font-weight: 500; margin-top: 15px; }
 .loader-container { text-align: center; padding: 50px; }
 
-/* 🔹 FIX: More breathing space in score container */
+/* 🔹 Score Container */
 .score-container {
   background-color: #f0f2f5;
   border-radius: 8px;
@@ -63,7 +63,7 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 }
 .score-display { font-size: 4rem; font-weight: 800; color: #0d1b3f; }
 
-/* 🔹 FIX: Better text formatting */
+/* 🔹 Results Text Wrapper */
 .results-text-wrapper {
   border: 1px solid #e4e6e8;
   border-radius: 8px;
@@ -86,28 +86,27 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .results-text li { margin-bottom: 10px; }
 .results-text > * { text-align: left; }
 
-/* 🔹 Headings spacing + Divider for Sections */
-.results-text h3 {
-  font-size: 1.8rem;
+/* 🔹 SECTION HEADINGS FIX for ReactMarkdown (<p><strong>) */
+/* 🔹 SECTION HEADINGS FIX for ReactMarkdown (<p><strong>) */
+.results-text p strong {
+  display: block;
+  font-size: 1.8rem;         /* Bigger heading font */
   font-weight: 800;
   color: #0d1b3f;
-  margin-top: 60px; /* 3-4 lines gap before heading */
+  margin-top: 60px;          /* 3-4 lines gap before heading */
   margin-bottom: 25px;
   padding-bottom: 10px;
-  border-bottom: 4px solid black; /* Thick black divider */
+  position: relative;
 }
 
-.results-text strong {
+/* 🔹 Full-width divider line (like SCC judgments) */
+.results-text p strong::after {
+  content: "";
   display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1e8e3e;
-  margin-top: 15px;
-  margin-bottom: 8px;
+  width: 100%;               /* Full container width */
+  height: 4px;               /* Thick line */
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
-
-.timeline-item { border: 1px solid #e4e6e8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
-.timeline-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f9fafb; cursor: pointer; }
-.timeline-header strong { display: inline; text-decoration: none; color: inherit; font-size: inherit; margin: 0; }
-.toggle-btn { background-color: #e4e6e8; border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 18px; font-weight: bold; }
-.timeline-details { padding: 15px; background-color: #fff; border-top: 1px solid #e4e6e8; }
