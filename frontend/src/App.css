@@ -86,17 +86,17 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .results-text li { margin-bottom: 10px; }
 .results-text > * { text-align: left; }
 
-/* 🔹 FIX: Headings spacing */
-.results-text h3, .timeline-container h3 {
+/* 🔹 Headings spacing + Divider for Sections */
+.results-text h3 {
   font-size: 1.8rem;
   font-weight: 800;
   color: #0d1b3f;
-  text-decoration: none;
-  margin-top: 35px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e4e6e8;
-  padding-bottom: 8px;
+  margin-top: 60px; /* 3-4 lines gap before heading */
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid black; /* Thick black divider */
 }
+
 .results-text strong {
   display: block;
   font-size: 1.2rem;
