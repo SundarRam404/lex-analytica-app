@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
@@ -51,7 +51,22 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .results-text-wrapper { border: 1px solid #e4e6e8; border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; }
 .results-text { font-size: 17px; font-weight: 500; line-height: 1.7; }
 .results-text > * { text-align: left; }
-.results-text h3, .timeline-container h3 { font-size: 1.8rem; font-weight: 800; color: #0d1b3f; text-decoration: none; margin-top: 25px; margin-bottom: 15px; border-bottom: 2px solid #e4e6e8; padding-bottom: 8px; }
+.results-text h3, .timeline-container h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0d1b3f;
+  text-decoration: none;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #e4e6e8;
+  padding-bottom: 10px;
+}
+/* Add extra vertical spacing after each block inside results */
+.results-text > div, 
+.results-text > ul, 
+.results-text > p {
+  margin-bottom: 30px; /* Space after paragraphs, lists, divs */
+}
 .results-text strong { display: block; font-size: 1.2rem; font-weight: 700; color: #1e8e3e; text-decoration: underline; text-underline-offset: 4px; margin-top: 15px; margin-bottom: 8px; }
 .timeline-item { border: 1px solid #e4e6e8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
 .timeline-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f9fafb; cursor: pointer; }
@@ -60,22 +75,4 @@ body { font-family: 'Inter', sans-serif; background-color: #f7f8fa; }
 .timeline-details { padding: 15px; background-color: #fff; border-top: 1px solid #e4e6e8; }
 .results-text li { margin-bottom: 20px; }
 .results-text ul li { list-style-type: none; }
-.results-text li strong {
-  display: block;
-  margin-top: 80px;            /* Space before heading */
-  margin-bottom: 15px;         /* Space after heading */
-  padding-bottom: 8px;         /* Space for divider */
-  border-bottom: 3px solid black;  /* Black divider line */
-  color: #1e8e3e;              /* Keep your original green */
-  text-decoration: none;
-  font-size: inherit;
-}
-
-/* 🔹 Add space + black line between section headings (1, 2, 3, 4) */
-.results-text p strong {
-  display: block;
-  margin-top: 80px;          /* Space above heading */
-  margin-bottom: 15px;       /* Space below heading */
-  padding-bottom: 8px;       /* Padding for line space */
-  border-bottom: 3px solid black;  /* Black line divider */
-}
+.results-text li strong { display: inline-block; margin-top: 10px; color: #1e8e3e; text-decoration: none; font-size: inherit; } 
