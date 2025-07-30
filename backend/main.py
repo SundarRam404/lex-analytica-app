@@ -131,6 +131,7 @@ Summarize effects on:
 ***Give 3 empty lines after***
 """
 
+
 @app.post("/analyze-pdf/")
 async def analyze_pdf_endpoint(files: list[UploadFile] = File(...)):
     full_text = ""
@@ -145,6 +146,6 @@ async def analyze_pdf_endpoint(files: list[UploadFile] = File(...)):
             raise HTTPException(status_code=400, detail=f"Error processing file {file.filename}: {e}")
     try:
         response = model.generate_content(PROMPT_V5_CORRECTED + full_text)
-        return {"analysis": response.text}
+        return {"analysis": f"```markdown\n{response.text}\n```"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"AI model error: {e}")
