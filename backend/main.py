@@ -55,7 +55,7 @@ Include:
 - **Parties:** Petitioner(s)/Appellant(s), Respondent(s)
 - **Date of Judgment**
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 2. Legal Brief
 Include:
@@ -67,7 +67,7 @@ Include:
 - **Ratio Decidendi**
 - **Obiter Dicta**
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 3. Case Timeline
 **Instructions:** For each event, provide a short title and a detailed paragraph. Format it exactly like this:
@@ -75,19 +75,19 @@ Include:
   - **Details:** [A detailed paragraph describing the event, its context, and its significance to the case.]
 **Crucially, every single event listed MUST have both a title and a 'Details' section, even if the details are brief. Do not omit the 'Details:' line for any entry.**
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 4. Critical Analysis
 - **Grounds for Appeal / Counter-Arguments**
 - **Precedent Analysis** (applied, distinguished, overruled)
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 5. Viva Voce & Study Guide
 - **MCQs:** 3 questions with (A–D) + correct answer explained
 - **Short Answer Questions:** 2 questions with concise model answers
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 6. Final Assessment
 - **Plain English Summary**
@@ -100,12 +100,12 @@ SCORE: 82/100
 - Clarity: 21/25  
 Justification: Judgment reasoning is strong and supported by precedent but minor factual omissions slightly lower the score.
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 7. Key Statutes & Provisions
 List each statute + section + provision summary + relevance.
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 8. Precedents Cited
 List each precedent with:
@@ -113,7 +113,7 @@ List each precedent with:
 - **Court**
 - **Application** (Followed, Distinguished, Overruled, Noted)
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 9. Practical Implications
 Summarize effects on:
@@ -122,13 +122,12 @@ Summarize effects on:
 - Industry/sector
 - Future litigation
 
-***Give 3 empty lines after***
+***\n\n\n***
 
 ### 10. Exam & Moot Court Relevance
 - Key takeaways for law exams
 - Moot court arguments supported by this judgment
 - Hypothetical problem statements
-***Give 3 empty lines after***
 """
 
 
@@ -146,6 +145,6 @@ async def analyze_pdf_endpoint(files: list[UploadFile] = File(...)):
             raise HTTPException(status_code=400, detail=f"Error processing file {file.filename}: {e}")
     try:
         response = model.generate_content(PROMPT_V5_CORRECTED + full_text)
-        return {"analysis": f"```markdown\n{response.text}\n```"}
+        return {"analysis": response.text.strip()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"AI model error: {e}")
